@@ -1,0 +1,48 @@
+ESTUDIANTE: May Chi Leysly del Jesús 
+CARRERA: TI
+CUATRIMESTRE y GRUPO: 4"A"
+ASIGNATURA: Aplicaciones Web Orientada a Servicios
+PROFESOR: Wilbert Campos
+PROBLEMA QUE RESOLVI EN LEETCODE: 13.Roman To Integer
+
+---------------------------------------------CÓDIGO DE JAVASCRIPT QUE UTILICE EN EL PROBLEMA 13 PARA CONVERTIR ROMANOS A ENTEROS-----------------------------------------------
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    // Funcion que representa el valor de los numeros romanos a enteros 
+function characterToInteger(caracter){
+    switch(caracter){
+        case 'I': return 1;
+        case 'V': return 5;
+        case 'X': return 10;
+        case 'L': return 50;
+        case 'C': return 100;
+        case 'D': return 500;
+        case 'M': return 1000;
+        default : return -1;
+        }
+        }
+
+        // Funcion para convertir un numero romano a entero 
+    function romanToInt(s){
+        if(s != 'string')
+            return null;
+    }
+    let number = characterToInteger(s.charAt(0));
+    let previousNumber;
+    let enteredNumber; 
+
+    for(let i = 1; i < s.length; ++i){
+        enteredNumber = characterToInteger(s.charAt(i));
+        previousNumber = characterToInteger(s.charAt(i - 1));
+
+        if(enteredNumber <= previousNumber){
+            number += enteredNumber;
+        }else{
+            number = number - previousNumber * 2 + enteredNumber;
+        }
+    }
+    return number;
+}; 
